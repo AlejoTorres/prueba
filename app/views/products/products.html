@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp"> 
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">                        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    
+        <title>Gifts  <i class="fa fa-gift fa-2x" aria-hidden="true"></i></title>
+        
+        <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>        
+        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">-->
+    
+        <!--<link href="justified-nav.css" rel="stylesheet">-->  
+    </head>
+    
+    <body ng-controller="ProductsCtrl">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#!/login">Gifts  <i class="fa fa-gift fa-2x" aria-hidden="true"></i></a>
+                    
+            <div id="navbar1" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#!/views/home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">Products <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!/login" class="nav-link" ng-click="logout()">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Product List:</h3>
+                </div>
+                <div class="col-md-5">
+                    <h3>Search: <input type="text" ng-model="search"> </h3>
+                </div>
+                
+                <div class="col-md-4">
+                    <!--<productComponent></productComponent>-->
+                    <a href="#!/views/products/product" class="btn btn-info">Add Product</a>
+                </div>   
+            </div>
+
+            <div class="row">
+                <div class="msg1" ng-show="msg1"> <h3>{{msg1}}</h3>  </div>  
+            </div>
+                    
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th width=200 >Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in products | filter:search | orderBy:'category'">
+                        <td>{{product.name}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.category}}</td>
+                        <td>  
+                            <a href="#!/views/products/edit-product/{{product.$id}}" class="btn btn-info btn-sm">Edit</a> 
+                            <a href="" ng-click="deleteProduct(product)" class="btn btn-danger btn-sm">Delete</a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    </body>
+</html>

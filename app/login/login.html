@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp"> 
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">            
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    
+        <title>Gifts  <i class="fa fa-gift fa-2x" aria-hidden="true"></i></title>
+
+        <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>        
+        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">-->
+    
+        <!--<link href="justified-nav.css" rel="stylesheet">-->  
+    </head>
+    
+    <body ng-controller="LoginCtrl">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#!/login">Gifts  <i class="fa fa-gift fa-2x" aria-hidden="true"></i></a>
+                            
+            <div id="navbar1" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="#!/login" class="nav-link">Sign In <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!/signup" class="nav-link">Sign Out </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <br>
+            <div class="jumbotron" style="padding-bottom:0px;">
+                <h2>Please Sign In</h2>
+            </div>
+
+            <form name="form" novalidate class="form-signin" role="form">
+                <div class="form-group" ng-class="{'has-error': 'form.email.$touched && form.email.$invalid'}">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" name="email" ng-model="user.email" placeholder="Email address" required="" autofocus="">
+                    <small class="help-block" ng-show="form.email.$touched && form.email.$invalid"></small>
+                </div>
+                <div class="form-group" ng-class="{'has-error': 'form.password.$touched && form.password.$invalid'}">   
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Password" required="">
+                    <small class="help-block" ng-show="form.password.$touched && form.password.$invalid"></small>
+                </div>    
+                <span ng-show="errMsg">{{errMessage}}</span>  
+                <button class="btn btn-lg btn-primary btn-block" ng-disabled="form.$invalid" ng-click="signIn()" type="submit">Sign in</button>
+                
+                <div class="checkbox">
+                    <label><a href="#!/signup"> Sign Up <a/></label>
+                </div>
+            </form>
+        </div>
+    
+    </body>
+</html>

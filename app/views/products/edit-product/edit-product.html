@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp"> 
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">                        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    
+        <title>Gifts  <i class="fa fa-gift fa-2x" aria-hidden="true"></i></title>
+        
+        <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>        
+        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">-->
+    
+        <!--<link href="justified-nav.css" rel="stylesheet">-->  
+    </head>
+    
+    <body ng-controller="EditProductCtrl">
+        <div class="container">
+            <div class="row">    
+                <div class="col-md-8">
+                    <h3>Product Edit Form:</h3>
+                </div>
+                <div class="col-md-4">
+                    <div class="msg3" ng-show="msg3">
+                        <h3>{{msg3}}</h3>
+                    </div>
+                </div>   
+            </div>
+    
+            <div class="clearfix"></div>
+                
+            <form class="form-horizontal" ng-submit="editProduct(product.$id)">
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Name:</label>
+                    <div class="col-sm-10">
+                         <input type="text" class="form-control" ng-model="product.name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Description:</label>
+                    <div class="col-sm-10">
+                        <!--<input type="text" class="form-control" ng-model="product.description">-->
+                        <textarea class="form-control" ng-model="product.description">{{product.description}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Price:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.price">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Category:</label>
+                    <div class="col-sm-10">
+                        <!--<input type="text" class="form-control" ng-model="product.category">-->
+                        <select class="form-control" ng-model="product.category">
+                            <option value="">---Please select---</option>
+                            <option ng-repeat="opt in options" value="{{opt.id}}">{{opt.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <a class="btn btn-info" href="#!/views/products">Cancel</a>
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
